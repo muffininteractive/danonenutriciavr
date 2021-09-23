@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+​
+    <title>INTERACTIVE VR EXP</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+    <script>
+AFRAME.registerComponent("move",{
+schema : {
+  target : { type : "selector"},  
+},
+init : function(){
+	this.el.addEventListener("mouseenter",function(e){
+            var animation = this.data.target;
+            animation.setAttribute("animation", "property:scale; to:1.8 1.8 1.8; dur:500; easing: easeInOutQuad");
+            
+	}.bind(this));
+	this.el.addEventListener("mouseleave",function(e){
+            var animation = this.data.target;
+            animation.setAttribute("animation", "property:scale; to:0 0 0;dur:500;easing: easeInOutQuad");
+            
+	}.bind(this));
+}
+
+
+});
+  </script>    
+  </head>  
+  <body>
+    
+    <a-scene inspector="url: https://cdn.jsdelivr.net/gh/aframevr/aframe-inspector@master/dist/aframe-inspector.min.js">
+      
+      <a-assets>
+        <a-asset-item id="lata1" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2FNutridrink.glb?v=1595512913904"></a-asset-item>
+        <a-asset-item id="lata1b" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2FNutridrink_Adv.glb?v=1595512913731"></a-asset-item>
+	      <a-asset-item id="lata2" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2FPACK_DIASIP_MORANGO.glb?v=1595260336510"></a-asset-item>
+        <a-asset-item id="lata3" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2FAptanutri.glb?v=1595528846907"></a-asset-item>
+        <a-asset-item id="lata3b" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2FAptanutri%20Pro.glb?v=1595529006301"></a-asset-item>
+        <a-asset-item id="lata4" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2FMilnutri%20Pro%20Caixa127.glb?v=1595874507267"></a-asset-item>
+        <a-asset-item id="lata5" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2FNutilis.glb?v=1595512913122"></a-asset-item>
+        
+        
+        <img id="bg" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Fbg2.jpg?v=1595536606546">
+        <img id="ground-tex" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Fground4.png?v=1595536609347">
+        
+        <img id="tex-pop1-1" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Fnutridrink-1.png?v=1595536522062">
+        <img id="tex-pop1-2" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Fnutridrink-2.png?v=1595536523035">
+        <img id="tex-pop1-3" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Fnutridrink-3.png?v=1595536522199">
+        
+        <img id="tex-pop2-1" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Fdiasip-1.png?v=1595536520671">
+        <img id="tex-pop2-2" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Fdiasip-2.png?v=1595536520759">
+        <img id="tex-pop2-3" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Fdiasip-3.png?v=1595536521917">
+        
+        <img id="tex-pop3-1" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Faptanutri-1.png?v=1595536519951">
+        <img id="tex-pop3-2" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Faptanutri-2.png?v=1595536522675">        
+               
+        <img id="tex-pop4-1" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Fmilnutri-1.png?v=1595536522886">
+        <img id="tex-pop4-2" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Fmilnutri-2.png?v=1595536521856">
+        <img id="tex-pop4-3" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Fmilnutri-3.png?v=1595536521828">
+        
+        <img id="tex-pop5-1" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Fnutilis-1.png?v=1595536520204">
+        <img id="tex-pop5-2" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2Fnutilis-2.png?v=1595536520347">
+        
+        
+            
+        <!--
+        <img id="tex-pop6-1" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2FAptaNutri1.png?v=1595436266567">
+        <img id="tex-pop6-2" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2FAptaNutri2.png?v=1595436267135">
+        <img id="tex-pop6-3" src="https://cdn.glitch.com/a72ee41e-a28e-4085-976f-3087d4d88b08%2FAptaNutri3.png?v=1595436267278">
+        -->
+      
+      </a-assets>
+    
+	
+	<!-- PACKS -->
+      
+      <!-- PACK 1 -->
+      
+	<a-entity id="pack1" rotation="0 0 0" move="target:#pop1;">
+    <a-plane height="1.8" width="3.5" visible="false" position="0 2.5 -6"></a-plane>
+	  
+    <a-entity id="emb1b" gltf-model="#lata1b" shadow="receive: false" position="0 0 -6" scale="0.4 0.4 0.4"
+		animation__mouseenter="property: rotation; to: 0 360 0; loop: true; startEvents: mouseenter; dur: 7000; easing: linear"
+		animation__mouseleave="property: rotation; to: 0 0 0; startEvents: mouseleave; dur: 1000; easing: easeOutQuad"		
+		></a-entity>
+		<a-entity id="pop1" scale="0 0 0" position="0 2.2 -2"	>
+		  <a-entity id="pop1-1"  position="-0.4 0 0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop1-1; transparent: true;shader: flat;"></a-entity>
+      <a-entity id="pop1-2"  position="0 0 0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop1-2; transparent: true;shader: flat;"></a-entity>
+      <a-entity id="pop1-3"  position="0.4 0 -0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop1-3; transparent: true;shader: flat;"></a-entity>
+		</a-entity>		        
+	</a-entity>
+	
+      <!-- PACK 2 -->
+      
+	<a-entity id="pack2" rotation="0 288 0" move="target:#pop2;">  
+	  <a-plane height="1.8" width="3.5" visible="false" position="0 2.5 -4"></a-plane>
+	  <a-entity id="emb2" gltf-model="#lata2" shadow="receive: false" position="0 0 -4" scale="0.4 0.4 0.4"
+		animation__mouseenter="property: rotation; to: 0 360 0; loop: true; startEvents: mouseenter; dur: 7000; easing: linear"
+		animation__mouseleave="property: rotation; to: 0 0 0; startEvents: mouseleave; dur: 1000; easing: easeInOutQuad"
+		
+		></a-entity>
+			
+		<a-entity id="pop2" scale="0 0 0" position="0 2.2 -2"	>
+		  <a-entity id="pop2-1"  position="-0.4 0 0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop2-1; transparent: true;shader: flat;"></a-entity>
+      <a-entity id="pop2-2"  position="0 0 0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop2-2; transparent: true;shader: flat;"></a-entity>
+      <a-entity id="pop2-3"  position="0.4 0 -0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop2-3; transparent: true;shader: flat;"></a-entity>
+		</a-entity>		        
+	</a-entity>
+	
+      <!-- PACK 3 -->
+      
+	<a-entity id="pack3" rotation="0 216 0" move="target:#pop3;">				
+		<a-plane height="1.8" width="3.5" visible="false" position="0 2.5 -6"></a-plane> 
+		<a-entity id="emb3" gltf-model="#lata3" shadow="receive: false" position="-1 0 -6" scale="0.4 0.4 0.4"
+		  animation__mouseenter="property: rotation; to: 0 360 0; loop: true; startEvents: mouseenter; dur: 7000; easing: linear"
+			animation__mouseleave="property: rotation; to: 0 0 0; startEvents: mouseleave; dur: 1000; easing: easeInOutQuad"				
+		></a-entity>
+		<a-entity id="emb3b" gltf-model="#lata3b" shadow="receive: false" position="1 0 -6" scale="0.4 0.4 0.4"
+		animation__mouseenter="property: rotation; to: 0 360 0; loop: true; startEvents: mouseenter; dur: 5000; easing: linear"
+		animation__mouseleave="property: rotation; to: 0 0 0; startEvents: mouseleave; dur: 1000; easing: easeInOutQuad"		
+		></a-entity>			
+		<a-entity id="pop3" scale="0 0 0" position="0 2.3 -2"	>
+		  <a-entity id="pop3-1"  position="-0.2 0 0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop3-1; transparent: true; shader: flat;"></a-entity>
+      <a-entity id="pop3-2"  position="0.2 0 0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop3-2; transparent: true;shader: flat;"></a-entity>
+		</a-entity>		        
+      </a-entity>
+	
+      <!-- PACK 4 -->
+      
+	<a-entity id="pack4" rotation="0 144 0" move="target:#pop4;">
+		 <a-plane height="1.8" width="3.5" visible="false" position="0 2.5 -6"></a-plane> 
+	  <a-entity id="emb4" gltf-model="#lata4" shadow="receive: false" position="0 0 -6" scale="0.4 0.4 0.4"
+		animation__mouseenter="property: rotation; to: 0 360 0; loop: true; startEvents: mouseenter; dur: 9000; easing: linear"
+		animation__mouseleave="property: rotation; to: 0 0 0; startEvents: mouseleave; dur: 1000; easing: easeInOutQuad"
+		></a-entity>
+		
+    
+		<a-entity id="pop4" scale="0 0 0" position="0 2.3 -2"	>
+		  <a-entity id="pop4-1"  position="-0.4 0 0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop4-1; transparent: true;shader: flat;"></a-entity>
+      <a-entity id="pop4-2"  position="0 0 0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop4-2; transparent: true;shader: flat;"></a-entity>
+      <a-entity id="pop4-3"  position="0.4 0 0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop4-3; transparent: true;shader: flat;"></a-entity>
+		</a-entity>		        
+	</a-entity>
+	
+      <!-- PACK 5 -->
+      
+	<a-entity id="pack5" rotation="0 72 0" move="target:#pop5;">  
+	  <a-plane height="1.8" width="3.5" visible="false" position="0 2.5 -6"></a-plane>
+	  <a-entity id="emb5" gltf-model="#lata5" shadow="receive: false" position="0 0 -6" scale="0.4 0.4 0.4"
+		animation__mouseenter="property: rotation; to: 0 360 0; loop: true; startEvents: mouseenter; dur: 7000; easing: linear"
+		animation__mouseleave="property: rotation; to: 0 0 0; startEvents: mouseleave; dur: 1000; easing: easeInOutQuad"
+		
+		></a-entity>
+    
+			
+		<a-entity id="pop5" scale="0 0 0" position="0 2.2 -2"	>
+		  <a-entity id="pop5-1"  position="-0.2 0 0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop5-1; transparent: true;shader: flat;"></a-entity>
+      <a-entity id="pop5-2"  position="0.2 0 0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop5-2; transparent: true;shader: flat;"></a-entity>
+      
+		</a-entity>		        
+      </a-entity>
+	
+      <!-- PACK 6-->
+   <!--   
+	<a-entity id="pack6" rotation="0 60 0" move="target:#pop6;">				
+		<a-plane height="3" width="4" visible="false" position="0 1.5 -4"></a-plane> 
+		<a-entity id="emb6" gltf-model="#lata6" shadow="receive: false" position="0 0 -4" scale="0.4 0.4 0.4"
+		  animation__mouseenter="property: rotation; to: 0 360 0; loop: true; startEvents: mouseenter; dur: 5000; easing: linear"
+			animation__mouseleave="property: rotation; to: 0 0 0; startEvents: mouseleave; dur: 1000; easing: easeInOutQuad"
+				
+				></a-entity>
+					
+		<a-entity id="pop6" scale="0 0 0" position="0 2.2 -2"	>
+		  <a-entity id="pop6-1"  position="-0.4 0 0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop6-1; transparent: true;shader: flat;"></a-entity>
+      <a-entity id="pop6-2"  position="0 0 0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop6-2; transparent: true;shader: flat;"></a-entity>
+      <a-entity id="pop6-3"  position="0.4 0 -0" geometry="primitive: plane;width: 0.392;height: 0.480"  material="src: #tex-pop6-3; transparent: true;shader: flat;"></a-entity>
+		</a-entity>		        
+      </a-entity>
+		-->
+			
+    
+    <!-- SCENE -->
+      
+      <!-- LIGHTS -->  
+      <a-entity id="li-amb" visible="true" position="0 0 0" light="type: ambient; intensity: 0.4; color: #d9d9d9;"></a-entity>
+      
+      <a-entity id="li-vol" visible="true" position="0 0 0" light="type: point; intensity: 0.5; color: #d9d9d9;"></a-entity>
+	  
+	    <a-entity id="li-shd" position="0 30 0" light="type: point; intensity: 0.7; color: #b0b3c4; shadowMapHeight: 1024; shadowMapWidth: 1024; castShadow: true; shadowRadius: 3; decay: 3;"></a-entity>
+      
+      <a-circle id="ground" geometry="primitive: circle" radius="15" rotation="-90 180 0" shadow="receive: true;" material="src: #ground-tex; roughness: 1; metalness: 0;; transparent: true; shader: standard"></a-circle>
+      
+      <a-sky id="cielo" material="src: #bg"></a-sky>
+	  
+	  <a-camera  position="0 1.6 0" universal-controls>
+	    <a-entity id="cursor" cursor="fuse: true;fuseTimeout:500"
+	    	material="color:black"
+	    	geometry="primitive:ring"
+	    	position="0 0 -1"
+	    	scale="0.01 0.01 0.01"
+	    ></a-entity>
+			  </a-camera>    
+    
+    </a-scene>
+  
+  </body>
+</html>
